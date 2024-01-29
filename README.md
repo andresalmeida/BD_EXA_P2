@@ -1,8 +1,8 @@
 # BD_EXA_P2
 
-## Instalación y uso MySQL Workbench (Ubuntu)
+## INSTALACIÓN Y USO MYSQL WORKBENCH (UBUNTU)
 
-La aplicación desde Ubuntu se deve instalar de la siguiente forma:
+La aplicación desde Ubuntu se debe instalar de la siguiente forma:
 
 1. Instalamos MySQL desde la línea de comandos:
    
@@ -19,7 +19,7 @@ La aplicación desde Ubuntu se deve instalar de la siguiente forma:
    ```bash
    sudo nano /etc/freetds/freetds.conf
    ```
-4. Añadimos esta sección:
+4. Añadimos esta sección y la actualizamos con nuestra información:
    ```bash
    [mssql_server]
     host = your_sql_server_address
@@ -44,7 +44,7 @@ La aplicación desde Ubuntu se deve instalar de la siguiente forma:
 
 ## Instalación y uso MongoDB
 
-1. Abre una terminal en la carpeta `backend`.
+1. Instalamos MongoDB Community desde [MongoDB Community Server Download](https://www.mongodb.com/try/download/community).
 2. Ejecuta `npm init -y` para inicializar el archivo `package.json`.
 3. Luego, ejecuta `npm install express` para instalar la dependencia de Express.
 4. Crea un archivo llamado `server.js` en la carpeta `backend` y agrega tu código de servidor Express.
