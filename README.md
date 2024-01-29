@@ -45,10 +45,18 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
 ## Instalación y uso MongoDB
 
 1. Instalamos MongoDB Community desde [MongoDB Community Server Download](https://www.mongodb.com/try/download/community).
-2. Ejecuta `npm init -y` para inicializar el archivo `package.json`.
-3. Luego, ejecuta `npm install express` para instalar la dependencia de Express.
-4. Crea un archivo llamado `server.js` en la carpeta `backend` y agrega tu código de servidor Express.
-5. Finalmente, ejecuta `node server.js` para iniciar el servidor.
+2. Instalamos MongoDB Shell desde [MongoDB Shell Download](https://www.mongodb.com/try/download/shell).
+3. Por último, y en caso de no tenerlo, instalamos [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+### Replicación de MongoDB con Docker
+
+1. Seguimos el proceso de [Deploying a MongoDB Cluster with Docker](https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker).
+2. Creamos una Red de Docker
+   ```Mongsh
+   docker network create mongoCluster
+   ```
+3.
+
 
 ### Database
 
