@@ -56,6 +56,7 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    docker network create mongoCluster
    ```
 3. Inicializamos las instancias de MongoDB para nuestros nodos, empezando con el nodo principal, y después, los secundarios:
+   
    ```Mongsh
    docker run -d -p 27017:27017 --name mongo1 --network mongoCluster mongo:5 mongod --replSet myReplicaSet --bind_ip localhost,mongo1
 
@@ -67,10 +68,14 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    ```bash
    docker ps
    ```
-   Nos debería dar un resultado como el de ![Terminal con los contenedores corriendo](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/docker%20ps.png)  
+   Nos debería dar un resultado como el de ![Terminal con los contenedores corriendo](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/docker%20ps.png)
+   
 5. Y en Docker Desktop tendríamos:
+   
 ![Docker Desktop](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Docker%20con%20Contenedores.png)
+
 6. Ahora, iniciamos el Replica Set:
+   
    ```Mongsh
    docker exec -it <nombre_contenedor> mongosh --eval "rs.initiate({
     _id: 'myReplicaSet',
@@ -90,6 +95,7 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    docker exec -it mongo1 mongosh --eval "rs.status()"
    ```
    Obtendríamos esto: ![Contenedores Replica](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Contenedores%20Replica.png)
+   
 9. Con eso configurado, importante que debemos tener instalado [Studio 3T](https://studio3t.com/es/download/)
 10. 
 
