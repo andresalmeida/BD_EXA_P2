@@ -67,7 +67,8 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    ```bash
    docker ps
    ```
-   Nos debería dar un resultado como el de 
+   Nos debería dar un resultado como el de ![Terminal con los contenedores corriendo](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Docker%20con%20Contenedores.png)
+
 
 ### Database
 
