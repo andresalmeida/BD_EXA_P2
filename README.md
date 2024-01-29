@@ -97,7 +97,19 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    Obtendríamos esto: ![Contenedores Replica](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Contenedores%20Replica.png)
    
 9. Con eso configurado, importante que debemos tener instalado [Studio 3T](https://studio3t.com/es/download/)
-10. 
+10. Ahora corremos el siguiente script, dependiendo del contenedor que tengamos y que sea el principal:
+    ```Mongsh
+    docker exec -it mongo1 mongo
+    ```
+11. Ahí, si es que logramos conectarnos satisfactoriamente al nodo principal, obtendremos los siguiente:
+    ```Mongsh
+    myReplicaSet:PRIMARY>
+    ```
+12. Ahí usaremos:
+    ```Mongsh
+    show databases # Para ver las bases de datos que tenemos después de nuestra migración de datos desde Studio 3T
+    use Spanish # Para usar la base de datos que deseemos
+    db.DimChannel.find().projection() # Para ver los campos e información de una colección en específico
 
 ## Tecnologías Utilizadas
 
