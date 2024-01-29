@@ -63,48 +63,44 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
  
    docker run -d -p 27019:27017 --name mongo3 --network mongoCluster mongo:5 mongod --replSet myReplicaSet --bind_ip localhost,mongo3
    ```
-4. Usamos
+4. Usamos el siguiente script:
    ```bash
    docker ps
    ```
-   Nos debería dar un resultado como el de ![Terminal con los contenedores corriendo](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/docker%20ps.png)
-
-
-### Database
-
-No hay necesidad de instalación adicional para la carpeta `database`.
-
-### Frontend
-
-1. Abre una terminal en la carpeta `frontend`.
-2. Ejecuta `npx create-vite@latest .` para inicializar un proyecto Vite.
-3. Luego, ejecuta `npm install` para instalar las dependencias de React y Vite.
-4. Ejecuta `npm install axios` para instalar la dependencia Axios que se utilizará en el frontend.
-5. Ejecuta `npm run dev` para iniciar la aplicación de React con Vite.
-
-### Carpeta del Proyecto
-
-1. Abre una terminal en la carpeta del proyecto.
-
-## Uso
-
-1. Accede a la aplicación en tu navegador usando la URL proporcionada por Vite, generalmente `http://localhost:3000`.
-2. En la pantalla de bienvenida, ingresa el nombre del maestro y haz clic en "Enter".
-3. Si es la primera vez que ingresaste, serás redirigido a la página de creación de evaluación. De lo contrario, verás la página con las opciones de "Crear Nueva Evaluación" y "Mis Evaluaciones".
-4. Para crear una nueva evaluación, ingresa el título, las preguntas y las opciones de respuesta. Luego, haz clic en "Create Evaluation".
-5. Para ver las evaluaciones creadas, haz clic en "Mis Evaluaciones".
-
-## Estructura del Proyecto
-
-- `backend`: Contiene el servidor Express y las rutas para manejar las solicitudes.
-- `database`: Almacena archivos de datos simulados para perros, adoptantes y adopciones.
-- `frontend`: La interfaz de usuario de la aplicación React construida con Vite.
+   Nos debería dar un resultado como el de ![Terminal con los contenedores corriendo](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/docker%20ps.png)  
+5. Y en Docker Desktop tendríamos:
+![Docker Desktop](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Docker%20con%20Contenedores.png)
+6. Ahora, iniciamos el Replica Set:
+   ```Mongsh
+   docker exec -it <nombre_contenedor> mongosh --eval "rs.initiate({
+    _id: 'myReplicaSet',
+    members: [
+      {_id: 0, host: 'mongo1'},
+      {_id: 1, host: 'mongo2'},
+      {_id: 2, host: 'mongo3'}
+    ]
+   })"
+   ```
+7. Si es que el proceso de replicación fue exitoso, deberíamos obtener el siguiente mensaje:
+   ```Mongsh
+   { ok: 1 }
+   ```
+8. Para verificar la replicación y como funcionan nuestros contenedores, corremos el siguiente script:
+   ```Mongsh
+   docker exec -it mongo1 mongosh --eval "rs.status()"
+   ```
+   Obtendríamos esto: ![Contenedores Replica](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Contenedores%20Replica.png)
+9. Con eso configurado, importante que debemos tener instalado [Studio 3T](https://studio3t.com/es/download/)
+10. 
 
 ## Tecnologías Utilizadas
 
-- Frontend: React con Vite.
-- Backend: Node.js con Express.
-- Base de Datos: Datos simulados almacenados en archivos JSON.
+- MySQL
+- MySQL Workbench
+- Docker Desktop
+- MongoDB Community
+- MongoDB Shell
+- Studio 3T
 
 ## Contribuciones
 
