@@ -55,8 +55,19 @@ La aplicación desde Ubuntu se debe instalar de la siguiente forma:
    ```Mongsh
    docker network create mongoCluster
    ```
-3.
+3. Inicializamos las instancias de MongoDB para nuestros nodos, empezando con el nodo principal, y después, los secundarios:
+   ```Mongsh
+   docker run -d -p 27017:27017 --name mongo1 --network mongoCluster mongo:5 mongod --replSet myReplicaSet --bind_ip localhost,mongo1
 
+   docker run -d -p 27018:27017 --name mongo2 --network mongoCluster mongo:5 mongod --replSet myReplicaSet --bind_ip localhost,mongo2
+ 
+   docker run -d -p 27019:27017 --name mongo3 --network mongoCluster mongo:5 mongod --replSet myReplicaSet --bind_ip localhost,mongo3
+   ```
+4. Usamos
+   ```bash
+   docker ps
+   ```
+   Nos debería dar un resultado como el de 
 
 ### Database
 
