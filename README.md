@@ -2,7 +2,7 @@
 
 ## INSTALACIÓN Y USO MYSQL WORKBENCH (UBUNTU)
 
-Tenemos el siguiente ![escenario](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Diagrama.png)
+Tenemos el siguiente escenario ![escenario](https://github.com/andresalmeida/BD_EXA_P2/blob/main/Imgs_Readme/Diagrama.png)
 
 La aplicación desde Ubuntu se debe instalar de la siguiente forma:
 
